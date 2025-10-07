@@ -1,7 +1,9 @@
 const { Client, GatewayIntentBits, AttachmentBuilder } = require("discord.js");
 const axios = require("axios");
 const Canvas = require("canvas");
-const { token } = require("./config.json");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const client = new Client({
   intents: [
@@ -41,7 +43,7 @@ client.on("messageCreate", async (message) => {
       const gif = res.data.results[0].url;
 
       message.channel.send({
-        content: `😤 ${message.author.username} menampar ${target.username}!`,
+        content: `😤 ${message.author.username} menampar ${target.toString()}!`,
         files: [gif],
       });
     } catch (err) {
@@ -223,7 +225,7 @@ if (command === "hug") {
     const gif = res.data.results[0].url;
 
     message.channel.send({
-      content: `🤗 ${message.author.username} memeluk ${target.username}!`,
+      content: `🤗 ${message.author.username} memeluk ${target.toString()}!`,
       files: [gif],
     });
   } catch (err) {
@@ -290,7 +292,7 @@ if (command === "hug") {
       const gif = res.data.results[0].url;
 
       message.channel.send({
-        content: `💬 ${message.author.username} memberi semangat ke ${target.username}!\n> ${pesan}`,
+        content: `💬 ${message.author.username} memberi semangat ke ${target.toString()}!\n> ${pesan}`,
         files: [gif],
       });
     } catch (err) {
@@ -313,7 +315,7 @@ if (command === "hug") {
       const gif = res.data.results[0].url;
 
       message.channel.send({
-        content: `🫶 ${message.author.username} mengelus kepala ${target.username} dengan lembut~ 😽`,
+        content: `🫶 ${message.author.username} mengelus kepala ${target.toString()}! dengan lembut~ 😽`,
         files: [gif],
       });
     } catch (err) {
@@ -334,12 +336,12 @@ if (command === "hug") {
         `💋 \`rains kiss @user\` → cium seseorang\n` +
         `🤣 \`rains meme\` → Ambil meme random\n` +
         `😂 \`rains joke\` → Candaan random\n` +
-        `👤 \`rains profile\` → Lihat profil kamu\n`
-        `\n*Bot ini masih tahap pengembangan, mohon maklum jika ada fitur yang belum sempurna ya 😅 *`
-        `\n*made with love ❤️ by ghanni*`
+        `👤 \`rains profile\` → Lihat profil kamu\n`+
+        `\n*Bot ini masih tahap pengembangan, mohon maklum jika ada fitur yang belum sempurna ya 😅*`+
+        `\n *made with love ❤️ by ghanni*`
     );
     return;
   }
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
