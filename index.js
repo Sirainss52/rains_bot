@@ -335,6 +335,8 @@ if (command === "hug") {
         `🤣 \`rains meme\` → Ambil meme random\n` +
         `😂 \`rains joke\` → Candaan random\n` +
         `👤 \`rains profile\` → Lihat profil kamu\n`
+        `\n*Bot ini masih tahap pengembangan, mohon maklum jika ada fitur yang belum sempurna ya 😅 *`
+        `\n*made with love ❤️ by ghanni*`
     );
     return;
   }
